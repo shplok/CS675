@@ -27,10 +27,10 @@ def preprocess_data(X):
 X_train_processed = preprocess_data(X_train)
 X_test_processed = preprocess_data(X_test)
 
-# Reduce dataset size for faster computation (optional)
-n_samples = 10000 
-X_train_reduced, _, y_train_reduced, _ = train_test_split(X_train_processed, y_train, train_size=n_samples, stratify=y_train, random_state=42)
-X_test_reduced, _, y_test_reduced, _ = train_test_split(X_test_processed, y_test, train_size=n_samples//5, stratify=y_test, random_state=42)
+# Reduce dataset size for faster computation (for me to test if functional)
+# n_samples = 10000
+# X_train_reduced, _, y_train_reduced, _ = train_test_split(X_train_processed, y_train, train_size=n_samples, stratify=y_train, random_state=42)
+# X_test_reduced, _, y_test_reduced, _ = train_test_split(X_test_processed, y_test, train_size=n_samples//5, stratify=y_test, random_state=42)
 
 # Initialize classifiers
 classifiers = {
@@ -50,7 +50,7 @@ for name, clf in classifiers.items():
         best_k = 0
         for k in param_grid['n_neighbors']:
             clf.set_params(n_neighbors=k)
-            scores = cross_val_score(clf, X_train_reduced, y_train_reduced.ravel(), cv=cv, n_jobs=-1)
+            scores = cross_val_score(clf, X_train_processed, y_train.ravel(), cv=cv, n_jobs=-1)
             if np.mean(scores) > best_score:
                 best_score = np.mean(scores)
                 best_k = k
@@ -58,15 +58,15 @@ for name, clf in classifiers.items():
         clf.set_params(n_neighbors=best_k)
     
     print(f"Training {name}...")
-    clf.fit(X_train_reduced, y_train_reduced.ravel())
+    clf.fit(X_train_processed, y_train.ravel())
 
 # Evaluate classifiers
 results = {}
 for name, clf in classifiers.items():
     print(f"Evaluating {name}...")
-    y_pred = clf.predict(X_test_reduced)
-    accuracy = accuracy_score(y_test_reduced, y_pred)
-    conf_matrix = confusion_matrix(y_test_reduced, y_pred)
+    y_pred = clf.predict(X_test_processed)
+    accuracy = accuracy_score(y_test, y_pred)
+    conf_matrix = confusion_matrix(y_test, y_pred)
     results[name] = {'accuracy': accuracy, 'confusion_matrix': conf_matrix}
 
 # Print results
@@ -105,7 +105,6 @@ plt.tight_layout()
 plt.savefig('cifar10_confusion_matrices.png')
 plt.close()
 
-print("Confusion matrices have been saved as 'cifar10_confusion_matrices.png'.")
 
 # Discussion
 print("\nDiscussion:")
