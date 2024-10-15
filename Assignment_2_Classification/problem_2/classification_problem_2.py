@@ -28,7 +28,7 @@ X_train_processed = preprocess_data(X_train)
 X_test_processed = preprocess_data(X_test)
 
 # Reduce dataset size for faster computation (optional)
-n_samples = 10000  # Adjust this number based on your computational resources
+n_samples = 10000 
 X_train_reduced, _, y_train_reduced, _ = train_test_split(X_train_processed, y_train, train_size=n_samples, stratify=y_train, random_state=42)
 X_test_reduced, _, y_test_reduced, _ = train_test_split(X_test_processed, y_test, train_size=n_samples//5, stratify=y_test, random_state=42)
 
