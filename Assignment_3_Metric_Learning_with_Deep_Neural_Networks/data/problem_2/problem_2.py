@@ -127,9 +127,8 @@ def prepare_data(known_classes: List[int] = [0, 1, 2, 3, 4]) -> Tuple[DataLoader
     train_pairs = PairDataset(train_set, known_classes, train=True)
     test_pairs = PairDataset(test_set, known_classes, train=False)
     
-    train_loader = DataLoader(train_pairs, batch_size=16, shuffle=True, num_workers=4, pin_memory=True)
-    test_loader = DataLoader(test_pairs, batch_size=32, shuffle=False, num_workers=4, pin_memory=True)
-    
+    train_loader = DataLoader(train_pairs, batch_size=16, shuffle=True, num_workers=2)
+    test_loader = DataLoader(test_pairs, batch_size=32, shuffle=False, num_workers=2)
     return train_loader, test_loader
 
 def train_siamese(model: nn.Module, 
