@@ -355,16 +355,18 @@ def main():
     train_siamese(model, train_loader, test_loader, num_epochs=10)
     
     print("\nEvaluating verification system...")
+        # Evaluate the model on the test set
     metrics = evaluate_verification(model, test_loader)
     
-    print("\nPlotting results...")
-    plot_verification_results(metrics)
+    print("\nVerification Results:")
+    print(f"AUC: {metrics['auc']:.2f}")
+    print(f"Optimal Threshold: {metrics['optimal_threshold']:.2f}")
+    print(f"True Positive Rate (TPR): {metrics['tpr']:.2f}")
+    print(f"False Positive Rate (FPR): {metrics['fpr']:.2f}")
     
-    print("\nVerification System Results:")
-    print(f"AUC-ROC: {metrics['auc']:.4f}")
-    print(f"Optimal Threshold: {metrics['optimal_threshold']:.4f}")
-    print(f"True Positive Rate: {metrics['tpr']:.4f}")
-    print(f"False Positive Rate: {metrics['fpr']:.4f}")
+    # Plot ROC curve and save the results
+    plot_verification_results(metrics)
+    print("ROC curve saved as 'verification_results.png'.")
 
 if __name__ == "__main__":
     main()
