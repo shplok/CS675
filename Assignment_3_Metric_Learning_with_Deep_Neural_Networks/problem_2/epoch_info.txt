@@ -1,0 +1,151 @@
+Generated 10000 pairs
+Generated 10000 pairs
+Number of training pairs: 10000
+Number of testing pairs: 10000
+Data preparation complete!
+
+Initializing Siamese network...
+C:\Python311\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+C:\Python311\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Model initialized!
+
+Starting training...
+Training on device: cpu
+Total training batches: 313
+Total validation batches: 313
+
+Epoch 1/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [31:43<00:00,  6.08s/it, loss=0.2491] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [09:39<00:00,  1.85s/it, loss=0.2671] 
+
+Epoch 1/10 Summary:
+Training Loss: 0.2550
+Validation Loss: 0.2553
+Epoch Time: 2483.14 seconds
+New best model saved! (Validation Loss: 0.2553)
+
+Epoch 2/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [30:58<00:00,  5.94s/it, loss=0.2508] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [13:21<00:00,  2.56s/it, loss=0.2493] 
+
+Epoch 2/10 Summary:
+Training Loss: 0.2533
+Validation Loss: 0.2525
+Epoch Time: 2660.56 seconds
+New best model saved! (Validation Loss: 0.2525)
+
+Epoch 3/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [28:23<00:00,  5.44s/it, loss=0.2523] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [09:45<00:00,  1.87s/it, loss=0.2537] 
+
+Epoch 3/10 Summary:
+Training Loss: 0.2536
+Validation Loss: 0.2523
+Epoch Time: 2289.33 seconds
+New best model saved! (Validation Loss: 0.2523)
+
+Epoch 4/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [27:52<00:00,  5.34s/it, loss=0.2585] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [09:38<00:00,  1.85s/it, loss=0.2548] 
+
+Epoch 4/10 Summary:
+Training Loss: 0.2534
+Validation Loss: 0.2526
+Epoch Time: 2250.83 seconds
+
+Epoch 5/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [27:27<00:00,  5.26s/it, loss=0.2627] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [09:40<00:00,  1.85s/it, loss=0.2566] 
+
+Epoch 5/10 Summary:
+Training Loss: 0.2533
+Validation Loss: 0.2525
+Epoch Time: 2228.00 seconds
+
+Epoch 6/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [32:37<00:00,  6.25s/it, loss=0.2509] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [14:04<00:00,  2.70s/it, loss=0.2583] 
+
+Epoch 6/10 Summary:
+Training Loss: 0.2536
+Validation Loss: 0.2524
+Epoch Time: 2802.38 seconds
+
+Epoch 7/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [31:45<00:00,  6.09s/it, loss=0.2511] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [09:50<00:00,  1.89s/it, loss=0.2569] 
+
+Epoch 7/10 Summary:
+Training Loss: 0.2533
+Validation Loss: 0.2528
+Epoch Time: 2496.12 seconds
+
+Epoch 8/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [30:15<00:00,  5.80s/it, loss=0.2534] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [10:55<00:00,  2.10s/it, loss=0.2594] 
+
+Epoch 8/10 Summary:
+Training Loss: 0.2529
+Validation Loss: 0.2526
+Epoch Time: 2470.89 seconds
+
+Epoch 9/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [28:12<00:00,  5.41s/it, loss=0.2521] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [09:52<00:00,  1.89s/it, loss=0.2530] 
+
+Epoch 9/10 Summary:
+Training Loss: 0.2535
+Validation Loss: 0.2526
+Epoch Time: 2284.83 seconds
+
+Epoch 10/10
+Training phase:
+Training batch: 100%|███████████████████████████████████████████████████████████████████████| 313/313 [28:55<00:00,  5.55s/it, loss=0.2369] 
+
+Validation phase:
+Validation batch: 100%|█████████████████████████████████████████████████████████████████████| 313/313 [10:40<00:00,  2.04s/it, loss=0.2641] 
+
+Epoch 10/10 Summary:
+Training Loss: 0.2529
+Validation Loss: 0.2543
+Epoch Time: 2375.79 seconds
+
+Evaluating verification system...
+Evaluating model on test set...
+Testing: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 313/313 [09:50<00:00,  1.89s/it] 
+
+Verification Results:
+AUC: 0.62
+Optimal Threshold: 0.45
+True Positive Rate (TPR): 0.56
+False Positive Rate (FPR): 0.38
+ROC curve saved as 'verification_results.png'.
