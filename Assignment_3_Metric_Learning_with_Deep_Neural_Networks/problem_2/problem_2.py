@@ -167,34 +167,6 @@ def prepare_data(known_classes: List[int] = [0, 1, 2, 3, 4],
     
     return train_loader, test_loader
 
-def prepare_data(known_classes: List[int] = [0, 1, 2, 3, 4], 
-                batch_size: int = 32,
-                num_workers: int = 0) -> Tuple[DataLoader, DataLoader]:
-    """Prepare CIFAR-10 dataset with appropriate transforms."""
-    transform = transforms.Compose([
-        transforms.Resize((224, 224)),
-        transforms.ToTensor(),
-        transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                           std=[0.229, 0.224, 0.225])
-    ])
-    
-    train_set = torchvision.datasets.CIFAR10(
-        root='./data', train=True, download=True, transform=transform)
-    test_set = torchvision.datasets.CIFAR10(
-        root='./data', train=False, download=True, transform=transform)
-    
-    train_pairs = PairDataset(train_set, known_classes, train=True)
-    test_pairs = PairDataset(test_set, known_classes, train=False)
-    
-    train_loader = DataLoader(train_pairs, batch_size=batch_size, 
-                            shuffle=True, num_workers=num_workers)
-    test_loader = DataLoader(test_pairs, batch_size=batch_size, 
-                            shuffle=False, num_workers=num_workers)
-    
-    print(f"Number of training pairs: {len(train_pairs)}")
-    print(f"Number of testing pairs: {len(test_pairs)}")
-    return train_loader, test_loader
-
 def evaluate_verification(model: nn.Module, 
                         test_loader: DataLoader,
                         device: str = 'cuda' if torch.cuda.is_available() else 'cpu') -> Dict:
@@ -355,7 +327,7 @@ def main():
     train_siamese(model, train_loader, test_loader, num_epochs=10)
     
     print("\nEvaluating verification system...")
-        # Evaluate the model on the test set
+    # Evaluate the model on the test set
     metrics = evaluate_verification(model, test_loader)
     
     print("\nVerification Results:")
